@@ -16,7 +16,7 @@ export default class Data {
         }
 
         if (requiresAuth) {
-            const encodedCredentials = btoa(`${credentials.username}:${credentials.password}`);
+            const encodedCredentials = btoa(`${credentials.emailAddress}:${credentials.password}`);
 
             options.headers['Authorization'] = `Basic ${encodedCredentials}`;
         }
@@ -24,8 +24,8 @@ export default class Data {
         return fetch(url, options);
     }
 
-    async getUser(username, password) {
-        const response = await this.api(`/users`, 'GET', null, true, { username, password });
+    async getUser(emailAddress, password) {
+        const response = await this.api(`/users`, 'GET', null, true, { emailAddress, password });
         if (response.status === 200) {
             return response.json().then(data => data);
         } else if (response.status === 401) {
@@ -57,8 +57,8 @@ export default class Data {
         }
     }
 
-    async createPost(post, username, password) {
-        const response = await this.api(`/posts`, 'POST', post, true, { username, password });
+    async createPost(post, emailAddress, password) {
+        const response = await this.api(`/posts`, 'POST', post, true, { emailAddress, password });
         if (response.status === 201) {
             return [];
         } else if (response.status === 400) {
@@ -70,8 +70,8 @@ export default class Data {
         }
     }
 
-    async getPost(postId, username, password) {
-        const response = await this.api(`/posts/${postId}`, 'GET', null, true, { username, password });
+    async getPost(postId, emailAddress, password) {
+        const response = await this.api(`/posts/${postId}`, 'GET', null, true, { emailAddress, password });
         if (response.status === 200) {
             return response.json().then(data => data);
         } else if (response.status === 404) {
@@ -83,8 +83,8 @@ export default class Data {
         }
     }
 
-    async updatePost(postId, post, username, password) {
-        const response = await this.api(`/posts/${postId}`, 'PUT', post, true, { username, password });
+    async updatePost(postId, post, emailAddress, password) {
+        const response = await this.api(`/posts/${postId}`, 'PUT', post, true, { emailAddress, password });
         if (response.status === 204) {
             return [];
         } else if (response.status === 403) {
@@ -96,8 +96,8 @@ export default class Data {
         }
     }
 
-    async deletePost(postId, username, password) {
-        const response = await this.api(`/posts/${postId}`, 'delete', null, true, { username, password });
+    async deletePost(postId, emailAddress, password) {
+        const response = await this.api(`/posts/${postId}`, 'delete', null, true, { emailAddress, password });
         if (response.status === 204) {
             return [];
         } else if (response.status === 403) {

@@ -38,13 +38,14 @@ export class Provider extends Component {
 
     signIn = async (username, password) => {
         const user = await this.data.getUser(username, password);
+        const currentUser = { ...user, password };
         if (user !== null) {
             this.setState(() => {
                 return {
-                    authenticatedUser: user,
+                    authenticatedUser: currentUser,
                 };
             });
-            Cookies.set('authenticatedUser', JSON.stringify(user), { expires: 1 });
+            Cookies.set('authenticatedUser', JSON.stringify(currentUser), { expires: 1 });
         }
         return user
     }

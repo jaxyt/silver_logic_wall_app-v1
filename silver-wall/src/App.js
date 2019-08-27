@@ -14,6 +14,7 @@ import NotFound from './components/NotFound';
 import UserSignIn from './components/UserSignIn';
 import UserSignUp from './components/UserSignUp';
 import UserSignOut from './components/UserSignOut';
+import NewPost from './components/NewPost';
 import Authenticated from './components/Authenticated';
 
 // New Imports
@@ -27,6 +28,7 @@ const PostsWithContext = withContext(Posts);
 const UserSignUpWithContext = withContext(UserSignUp);
 const UserSignInWithContext = withContext(UserSignIn);
 const UserSignOutWithContext = withContext(UserSignOut);
+const NewPostWithContext = withContext(NewPost);
 
 function App() {
   return (
@@ -37,6 +39,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={PostsWithContext} />
           <PrivateRoute path="/authenticated" component={AuthWithContext} />
+          <PrivateRoute path="/newpost" component={NewPostWithContext} />
           <Route path='/signin' component={UserSignInWithContext} />
           <Route path='/signup' component={UserSignUpWithContext} />
           <Route path='/signout' component={UserSignOutWithContext} />

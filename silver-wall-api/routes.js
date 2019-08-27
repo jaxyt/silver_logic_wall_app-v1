@@ -9,7 +9,7 @@ const { User, Post } = models;
 
 const router = express.Router();
 
-const authenticate = async (req, res, next) => {
+const authenticateUser = async (req, res, next) => {
     try {
         let message = null;
         let user;
@@ -56,7 +56,7 @@ const validate = (req, res, next) => {
 }
 
 // Returns the currently authenticated user
-router.get('/users', authenticate, async (req, res, next) => {
+router.get('/users', authenticateUser, async (req, res, next) => {
     try {
         const credentials = auth(req);
         const user = await User.findOne({where: { emailAddress: credentials.name }, attributes: ['id','username','emailAddress']});
@@ -132,11 +132,11 @@ router.get('/posts', async (req, res, next) => {
 /**
  * creates a new course and assigns it to either the current user or a user specified in the body
  */
-router.post('/posts',  [
+router.post('/posts', authenticateUser,  [
     check('postContent')
         .exists()
         .withMessage('Please provide content for this post'),
-  ], validate, authenticate, async (req, res, next) => {
+  ], validate, async (req, res, next) => {
     try {
         const credentials = auth(req);
         const currentUser = await User.findOne({where: {emailAddress: credentials.name}})
