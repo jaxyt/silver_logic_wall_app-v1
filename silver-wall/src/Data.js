@@ -70,8 +70,8 @@ export default class Data {
         }
     }
 
-    async getPost(postId, emailAddress, password) {
-        const response = await this.api(`/posts/${postId}`, 'GET', null, true, { emailAddress, password });
+    async getPost(postId) {
+        const response = await this.api(`/posts/${postId}`, 'GET', null);
         if (response.status === 200) {
             return response.json().then(data => data);
         } else if (response.status === 404) {
