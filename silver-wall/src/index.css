@@ -338,7 +338,7 @@ p {
 }
 
 /* line 102, ../sass/global.sass */
-.course--module {
+.post--module {
   background: #7c689b;
   border-radius: 8px;
   padding: 30px;
@@ -349,22 +349,22 @@ p {
   box-sizing: border-box;
 }
 /* line 2, ../sass/mixins.sass */
-.course--module:before, .course--module:after {
+.post--module:before, .post--module:after {
   content: " ";
   display: table;
 }
 /* line 5, ../sass/mixins.sass */
-.course--module:after {
+.post--module:after {
   clear: both;
 }
 /* line 112, ../sass/global.sass */
-.course--module--title {
+.post--module--title {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 /* line 116, ../sass/global.sass */
-.course--label {
+.post--label {
   font-family: "Cousine";
   font-size: 14px;
   font-weight: 100;
@@ -373,32 +373,32 @@ p {
   font-weight: normal;
 }
 /* line 123, ../sass/global.sass */
-.course--title {
+.post--title {
   font-size: 18px;
   color: #fff;
 }
 /* line 126, ../sass/global.sass */
-.course--link {
+.post--link {
   display: block;
   cursor: pointer;
   text-decoration: none;
   border: 0;
 }
 /* line 133, ../sass/global.sass */
-.course--add--module {
+.post--add--module {
   background: #eee;
   text-align: center;
 }
 /* line 137, ../sass/global.sass */
-.course--add--module:hover .course--add--title {
+.post--add--module:hover .post--add--title {
   color: #444;
 }
 /* line 139, ../sass/global.sass */
-.course--add--module:hover .add {
+.post--add--module:hover .add {
   fill: #444;
 }
 /* line 141, ../sass/global.sass */
-.course--add--title {
+.post--add--title {
   color: #999;
   display: inline-block;
   font-size: 18px;
@@ -411,64 +411,64 @@ p {
   transform: translate(-50%, -55%);
 }
 /* line 149, ../sass/global.sass */
-.course--add--title .add {
+.post--add--title .add {
   width: 13px;
   height: auto;
   margin: 0 5px 0 0;
   fill: #999;
 }
 /* line 159, ../sass/global.sass */
-.course--detail {
+.post--detail {
   margin-top: 60px;
 }
 /* line 162, ../sass/global.sass */
-.course--header {
+.post--header {
   margin-bottom: 30px;
 }
 /* line 164, ../sass/global.sass */
-.course--header .course--label {
+.post--header .post--label {
   font-size: 18px;
   color: #999;
 }
 /* line 167, ../sass/global.sass */
-.course--header .course--title {
+.post--header .post--title {
   font-size: 48px;
   margin-bottom: 15px;
   color: #332a40;
 }
 /* line 171, ../sass/global.sass */
-.course--header p {
+.post--header p {
   font-size: 18px;
   color: #b1a5c4;
   font-weight: 100;
 }
 /* line 176, ../sass/global.sass */
-.course--title--input {
+.post--title--input {
   font-size: 48px;
   font-weight: bold;
   font-family: "Work Sans", sans-serif;
 }
 /* line 186, ../sass/global.sass */
-.course--description {
+.post--description {
   margin-bottom: 30px;
 }
 /* line 188, ../sass/global.sass */
-.course--description textarea {
+.post--description textarea {
   margin-bottom: 60px;
 }
 /* line 190, ../sass/global.sass */
-.course--description p {
+.post--description p {
   font-size: 16px;
   line-height: 1.8;
   color: #444;
 }
 /* line 195, ../sass/global.sass */
-.course--description ol,
-.course--description ul {
+.post--description ol,
+.post--description ul {
   list-style-type: none;
 }
 /* line 198, ../sass/global.sass */
-.course--description li {
+.post--description li {
   position: relative;
   padding-left: 30px;
   padding: 30px 0 30px 5%;
@@ -478,20 +478,20 @@ p {
   font-family: "Cousine";
 }
 /* line 2, ../sass/mixins.sass */
-.course--description li:before, .course--description li:after {
+.post--description li:before, .post--description li:after {
   content: " ";
   display: table;
 }
 /* line 5, ../sass/mixins.sass */
-.course--description li:after {
+.post--description li:after {
   clear: both;
 }
 /* line 208, ../sass/global.sass */
-.course--description ol li {
+.post--description ol li {
   counter-increment: step-counter;
 }
 /* line 210, ../sass/global.sass */
-.course--description ol li:before {
+.post--description ol li:before {
   content: counter(step-counter);
   color: #999;
   font-size: 18px;
@@ -500,7 +500,7 @@ p {
   top: 34px;
 }
 /* line 219, ../sass/global.sass */
-.course--description ul li:before {
+.post--description ul li:before {
   content: "";
   float: left;
   margin: 9px 0 0 -30px;
@@ -511,27 +511,27 @@ p {
   display: block;
 }
 /* line 229, ../sass/global.sass */
-.course--description h1,
-.course--description h2,
-.course--description h3 {
+.post--description h1,
+.post--description h2,
+.post--description h3 {
   font-family: "Work Sans", sans-serif;
   color: #222;
   margin-bottom: 30px;
 }
 /* line 235, ../sass/global.sass */
-.course--description h1 {
+.post--description h1 {
   font-size: 36px;
 }
 /* line 237, ../sass/global.sass */
-.course--description h2 {
+.post--description h2 {
   font-size: 30px;
 }
 /* line 239, ../sass/global.sass */
-.course--description h3 {
+.post--description h3 {
   font-size: 24px;
 }
 /* line 241, ../sass/global.sass */
-.course--description h4 {
+.post--description h4 {
   font-size: 18px;
   font-weight: 100;
   margin: 0 0 10px;
@@ -539,7 +539,7 @@ p {
   display: block;
 }
 /* line 287, ../sass/global.sass */
-.course--stats--list h4 {
+.post--stats--list h4 {
   font-family: "Cousine";
   font-weight: 100;
   color: #999;
@@ -554,25 +554,25 @@ p {
   white-space: nowrap;
 }
 /* line 300, ../sass/global.sass */
-.course--stats--list h3 {
+.post--stats--list h3 {
   font-family: "Work Sans", sans-serif;
   font-size: 18px;
 }
 /* line 303, ../sass/global.sass */
-.course--stats--list > li {
+.post--stats--list > li {
   margin-bottom: 50px;
 }
 /* line 305, ../sass/global.sass */
-.course--stats--list > li ul {
+.post--stats--list > li ul {
   padding-left: 20px;
 }
 /* line 307, ../sass/global.sass */
-.course--stats--list > li li {
+.post--stats--list > li li {
   margin-bottom: 15px;
   list-style-type: circle;
 }
 /* line 311, ../sass/global.sass */
-.course--time--input {
+.post--time--input {
   font-family: "Work Sans", sans-serif;
   font-size: 18px;
   font-weight: bold;
@@ -747,8 +747,8 @@ input:focus {
   padding: 15px 0 40px 10px;
 }
 
-/* reduce bottom margin on the course description textarea element */
-.course--description textarea {
+/* reduce bottom margin on the post description textarea element */
+.post--description textarea {
   margin-bottom: 20px;
 }
 

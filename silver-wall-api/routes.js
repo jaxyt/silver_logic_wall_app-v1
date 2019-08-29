@@ -150,7 +150,22 @@ router.post('/posts', authenticateUser,  [
     }
 })
 
-router.get('/posts/:id');
+router.get('/posts/:id', async (req, res, next) => {
+    try {
+        const post = await Post.findOne({
+            where: { id: req.body.id },
+            attributes: ['id', 'postContent'],
+            include: [{
+                model: User,
+                attributes: ['id', 'username']
+            }]
+        });
+
+        res.json(post);
+    } catch (error) {
+        next(error);
+    }
+});
 
 router.put('/posts/:id');
 

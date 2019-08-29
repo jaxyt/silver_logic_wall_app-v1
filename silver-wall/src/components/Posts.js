@@ -19,15 +19,15 @@ export default class Posts extends Component {
             <div className="bounds">
                 {posts.map(post => (
                     <div className="grid-33" key={post.id}>
-                        <Link className="course--module course--link" to={`/posts/${post.id}`}>
-                            <h4 className="course--label">{post.postContent}</h4>
-                            <h3 className="course--title">by {post.User.username}</h3>
+                        <Link className="post--module post--link" to={`/posts/${post.id}`}>
+                            <h4 className="post--label">{post.postContent}</h4>
+                            <h3 className="post--title">by {post.User.username}</h3>
                         </Link>
                     </div>
                 ))}
                 <div className="grid-33">
-                    <Link className="course--module course--add--module" to="/newpost">
-                        <h3 className="course--add--title"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 13 13" class="add">
+                    <Link className="post--module post--add--module" to="/newpost">
+                        <h3 className="post--add--title"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 13 13" class="add">
                             <polygon points="7,6 7,0 6,0 6,6 0,6 0,7 6,7 6,13 7,13 7,7 13,7 13,6 "></polygon>
                             </svg>New Post
                         </h3>
