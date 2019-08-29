@@ -4,6 +4,8 @@ const express = require('express');
 const { check, validationResult } = require('express-validator/check');
 const bcryptjs = require('bcryptjs');
 const auth = require('basic-auth');
+const mailjet = require ('node-mailjet');
+    
 const { models } = require('./db');
 const { User, Post } = models;
 
@@ -55,6 +57,31 @@ const validate = (req, res, next) => {
     }
 }
 
+const sendEmail = (newUser) => {
+    mailjet
+        .post("send", {'version': 'v3.1'})
+        .request({
+        "Messages":[
+            {
+            "From": {
+                "Email": "jax.maximillion.taylor@gmail.com",
+                "Name": "jax"
+            },
+            "To": [
+                {
+                "Email": `${newUser.emailAddress}`,
+                "Name": `${newUser.username}`
+                }
+            ],
+            "Subject": "Greetings from SilverWall.",
+            "TextPart": "New User Sign Up",
+            "HTMLPart": `<h3>Dear ${newUser.username}, welcome!</h3>`,
+            "CustomID": "NewUserSignUp"
+            }
+        ]
+        });
+} 
+
 // Returns the currently authenticated user
 router.get('/users', authenticateUser, async (req, res, next) => {
     try {
@@ -98,6 +125,15 @@ router.post('/users', [
         }
       } catch (err) {
           next(err);
+      }
+  }, async (req, res, next) => {
+      try {
+        const result = await sendEmail(req.body);
+        console.log(result);
+        next();
+      } catch (error) {
+        console.log(error.statusCode);
+        res.status(400).json({err: "Sorry, but an error occured and we're unable to complete your request"});
       }
   }, async (req, res) => {
     try {
