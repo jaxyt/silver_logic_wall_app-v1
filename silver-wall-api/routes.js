@@ -5,7 +5,7 @@ const { check, validationResult } = require('express-validator/check');
 const bcryptjs = require('bcryptjs');
 const auth = require('basic-auth');
 
-// Use mailjet's api to send emails to user on signup, just replace the sender key values with your account info and your good to go
+// Use mailjet's api to send emails to user on signup, just replace the sender key values with your account info and youre good to go
 const sender = {
     name: '',
     emailAddress: '',
