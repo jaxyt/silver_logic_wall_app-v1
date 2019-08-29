@@ -4,8 +4,17 @@ const express = require('express');
 const { check, validationResult } = require('express-validator/check');
 const bcryptjs = require('bcryptjs');
 const auth = require('basic-auth');
-const mailjet = require ('node-mailjet');
-    
+
+// Use mailjet's api to send emails to user on signup, just replace the sender key values with your account info and your good to go
+const sender = {
+    name: '',
+    emailAddress: '',
+    apiKey: '',
+    secretKey: '',
+}
+const mailjet = require ('node-mailjet')
+    .connect(sender.apiKey, sender.secretKey);
+
 const { models } = require('./db');
 const { User, Post } = models;
 
@@ -64,8 +73,8 @@ const sendEmail = (newUser) => {
         "Messages":[
             {
             "From": {
-                "Email": "jax.maximillion.taylor@gmail.com",
-                "Name": "jax"
+                "Email": `${sender.emailAddress}`,
+                "Name": `${sender.name}`
             },
             "To": [
                 {
