@@ -9,20 +9,68 @@
             "username": "suzieq",
             "emailAddress": "hamona@gmail.com",
             "password": "suziepassword"
+        },
+        {
+            "username": "testy",
+            "emailAddress": "test@email.com",
+            "password": "testpassword"
+        },
+        {
+            "username": "rafaelaG",
+            "emailAddress": "rafa@gmail.com",
+            "password": "rafapassword"
         }
     ],
     "posts": [
         {
-            "userId": 1,
-            "postContent": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+            "id": 1,
+            "postContent": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+            "userId": 1
         },
         {
-            "userId": 2,
-            "postContent": "omg i hate my parentsssss"
+            "id": 2,
+            "postContent": "omg i hate my parentsssss",
+            "userId": 2
         },
         {
-            "userId": 2,
-            "postContent": "im totes tweeting with a fridge rn, so friggin cool"
+            "id": 3,
+            "postContent": "im totes tweeting with a fridge rn, so friggin cool",
+            "userId": 2
+        },
+        {
+            "id": 4,
+            "postContent": "lets see if this works or everything goes to shit",
+            "userId": 1
+        },
+        {
+            "id": 5,
+            "postContent": "soooo this is starting to look muchhhh better but this layout on the front page has got to change",
+            "userId": 1
+        },
+        {
+            "id": 6,
+            "postContent": "ssfsdfhskjghsgfhgdljkdgdgdfgdfgt please work",
+            "userId": 1
+        },
+        {
+            "id": 7,
+            "postContent": "this is my first test post hdfhglfdhglkfdjghfdlkjghfdvfdjvfhdvkjfdhvjkhfdkvlhfljkghfjdkghjkdfhkgjhdfgfdhlhfdkghkfdgfdhghkdfhglkjfdhgjkfdhglkdfhgjkdfhgkdfhgjkfdlghdfkghf lets see what happens",
+            "userId": 3
+        },
+        {
+            "id": 8,
+            "postContent": "second post to test out the routes since i updated the class name of this file and the imports of it",
+            "userId": 3
+        },
+        {
+            "id": 9,
+            "postContent": "yo yo yo I just put the \"CR\" in \"CRUD\"!! Now \"U\" know i gotta give it the-... *ahem*... moving on....",
+            "userId": 1
+        },
+        {
+            "id": 10,
+            "postContent": "this is my first post!!",
+            "userId": 4
         }
     ]
 }
