@@ -16,6 +16,8 @@ import UserSignUp from './components/UserSignUp';
 import UserSignOut from './components/UserSignOut';
 import NewPost from './components/NewPost';
 import PostDetail from './components/PostDetail';
+import UpdatePost from './components/UpdatePost';
+import DeletePost from './components/DeletePost';
 import Authenticated from './components/Authenticated';
 
 // New Imports
@@ -31,6 +33,8 @@ const UserSignInWithContext = withContext(UserSignIn);
 const UserSignOutWithContext = withContext(UserSignOut);
 const NewPostWithContext = withContext(NewPost);
 const PostDetailWithContext = withContext(PostDetail);
+const UpdatePostWithContext = withContext(UpdatePost);
+const DeletePostWithContext = withContext(DeletePost);
 
 function App() {
   return (
@@ -42,6 +46,8 @@ function App() {
           <Route exact path="/" component={PostsWithContext} />
           <PrivateRoute path="/authenticated" component={AuthWithContext} />
           <PrivateRoute path="/newpost" component={NewPostWithContext} />
+          <PrivateRoute path="/posts/update/:id" component={UpdatePostWithContext} />
+          <PrivateRoute path="/posts/delete/:id" component={DeletePostWithContext} />
           <Route path="/posts/:id" component={PostDetailWithContext}/>
           <Route path='/signin' component={UserSignInWithContext} />
           <Route path='/signup' component={UserSignUpWithContext} />

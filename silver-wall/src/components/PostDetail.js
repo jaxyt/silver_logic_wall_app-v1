@@ -6,7 +6,7 @@ export default class PostDetail extends Component {
         postDetail: [],
     }
 
-    componentDidMount() {
+    componentWillMount() {
         this.display();
     }
 
@@ -21,7 +21,7 @@ export default class PostDetail extends Component {
                     <div>
                     <div className="actions--bar">
                       <div className="bounds">
-                        <div className="grid-100"><span><Link className="button" to="#">Update Post</Link><Link className="button" to="#">Delete Post</Link></span><Link
+                        <div className="grid-100"><span><Link className="button" to={`/posts/update/${post.id}`}>Update Post</Link><Link className="button" to={`/posts/delete/${post.id}`}>Delete Post</Link></span><Link
                             className="button button-secondary" to="/">Return to List</Link></div>
                       </div>
                     </div>
@@ -42,7 +42,7 @@ export default class PostDetail extends Component {
     }
 
     display = () => {
-        const { context, location, match } = this.props;
+        const { context, match } = this.props;
         console.log(match.params.id);
         context.data.getPost(match.params.id)
             .then(currentPost => {

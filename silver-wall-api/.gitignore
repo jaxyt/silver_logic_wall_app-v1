@@ -62,3 +62,6 @@ typings/
 
 # SQLite database file
 *.db
+
+# my mailjet configuration
+/my-config.json

@@ -6,12 +6,13 @@ const bcryptjs = require('bcryptjs');
 const auth = require('basic-auth');
 
 // Use mailjet's api to send emails to user on signup, just replace the sender key values with your account info and youre good to go
+const mailjetConfig = require('./my-config.json');
 const sender = {
-    name: '',
-    emailAddress: '',
-    apiKey: '',
-    secretKey: '',
-}
+    name: mailjetConfig.name,
+    emailAddress: mailjetConfig.emailAddress,
+    apiKey: mailjetConfig.apiKey,
+    secretKey: mailjetConfig.secretKey,
+};
 const mailjet = require ('node-mailjet')
     .connect(sender.apiKey, sender.secretKey);
 
@@ -212,9 +213,54 @@ router.get('/posts/:id', async (req, res, next) => {
     }
 });
 
-router.put('/posts/:id');
+router.put('/posts/:id', [
+    check('postContent')
+        .exists()
+        .withMessage('Please provide content for this post'),
+  ], validate, authenticateUser, async (req, res, next) => {
+    try {
+        const credentials = auth(req);
+        const user = await User.findOne({where: {emailAddress: credentials.name}});
+        const post = await Post.findOne({where: {id: req.params.id}});
+        if (user.id === post.userId) {
+            next();
+        } else {
+            res.status(403).json({errors: ["The post you are attempting to modify is owned by a different user"]})
+        }    
+    } catch (err) {
+        next(err)
+    }
+  }, async (req, res, next) => {
+    try {
+        const updates = req.body;
+        const updatedPost = await Post.update({postContent: updates.postContent}, {where: {id: req.params.id}});
+        return res.status(204).end();
+    } catch (err) {
+        next(err)
+    }
+  });
 
-router.delete('/posts/:id');
+router.delete('/posts/:id', authenticateUser, async (req, res, next) => {
+    try {
+        const credentials = auth(req);
+        const user = await User.findOne({where: {emailAddress: credentials.name}});
+        const post = await Post.findOne({where: {id: req.params.id}});
+        if (user.id === post.userId) {
+            next();
+        } else {
+            res.status(403).json({errors: ["The post you are attempting to modify is owned by a different user"]})
+        }    
+    } catch (err) {
+        next(err)
+    }
+  }, async (req, res, next) => {
+    try {
+        const deletedPost = await Post.destroy({where: {id: req.params.id}});
+        res.status(204).end();  
+    } catch (err) {
+        next(err);
+    }
+  });
 
 module.exports = router;
 // {"postContent":"A dummy test post"}
